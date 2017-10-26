@@ -1,0 +1,31 @@
+{
+  "phones": [
+    {
+      "id": 0,
+      "title": "Samsung Galaxy 8",
+      "brand": "Samsung",
+      "description": "A faster phone ever",
+      "color": "black",
+      "price": "580",
+      "img": "http://drop.ndtv.com/TECH/product_database/images/329201783846PM_635_samsung_galaxy_s8.jpeg"
+    },
+    {
+      "id": 1,
+      "title": "Samsung Galaxy 8",
+      "brand": "Samsung",
+      "description": "A faster phone ever",
+      "color": "white",
+      "price": "580",
+      "img": "http://drop.ndtv.com/TECH/product_database/images/329201783846PM_635_samsung_galaxy_s8.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "Samsung Galaxy 8",
+      "brand": "Samsung",
+      "description": "A faster phone ever",
+      "color": "red",
+      "price": "580",
+      "img": "http://drop.ndtv.com/TECH/product_database/images/329201783846PM_635_samsung_galaxy_s8.jpeg"
+    }
+  ]
+}
