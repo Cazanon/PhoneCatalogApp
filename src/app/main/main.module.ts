@@ -6,6 +6,9 @@ import { MainRoutingModule } from './main-routing.module';
 /* Components */
 import { MainComponent } from './main.component';
 
+/* Services */
+import { PhonesService } from './services/phones.service';
+
 @NgModule({
   imports: [
     SharedModule,
@@ -16,6 +19,9 @@ import { MainComponent } from './main.component';
   ],
   exports: [
     MainRoutingModule
+  ],
+  providers: [
+    PhonesService
   ]
 })
 export class MainModule {

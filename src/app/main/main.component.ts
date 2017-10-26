@@ -1,3 +1,4 @@
+import { PhonesService } from './services/phones.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private phonesService: PhonesService) { }
 
   ngOnInit() {
+    this.phonesService.getPhones().subscribe(
+      data => {
+        console.log('data', data);
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
   }
 
 }
