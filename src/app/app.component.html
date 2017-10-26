@@ -1,17 +1,11 @@
-<div class="app__layer">
+<header class="app__header">
+  <router-outlet name="header"></router-outlet>
+</header>
 
-  <header class="app__header">
-    <router-outlet name="header"></router-outlet>
-  </header>
+<article class="app__main">
+  <router-outlet name="main"></router-outlet>
+</article>
 
-  <article class="app__main">
-    <router-outlet name="main"></router-outlet>
-  </article>
-
-  <footer class="app__footer">
-    <router-outlet name="footer"></router-outlet>
-  </footer>
-
-</div>
-
-<!-- <app-spinner></app-spinner> -->
+<footer class="app__footer">
+  <router-outlet name="footer"></router-outlet>
+</footer>

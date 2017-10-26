@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
 import { MainRoutingModule } from './main-routing.module';
 
@@ -8,14 +8,17 @@ import { MainComponent } from './main.component';
 
 /* Services */
 import { PhonesService } from './services/phones.service';
+import { PhoneListContainerComponent } from './components/phone-list-container/phone-list-container.component';
 
 @NgModule({
   imports: [
     SharedModule,
-    MainRoutingModule
+    MainRoutingModule,
+    BrowserModule
   ],
   declarations: [
-    MainComponent
+    MainComponent,
+    PhoneListContainerComponent
   ],
   exports: [
     MainRoutingModule

@@ -1,0 +1,14 @@
+:host{
+  display: block;
+  width: 100%;
+  background-color: #B4B8AB;
+  font-size: 13px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  & p:first-of-type {
+    padding-bottom: 0.5rem;
+  }
+}
