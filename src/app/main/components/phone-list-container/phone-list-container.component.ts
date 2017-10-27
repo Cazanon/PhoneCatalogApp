@@ -22,6 +22,10 @@ export class PhoneListContainerComponent implements OnInit {
     this.selectedPhone = this.phones.find(e => e.id === id);
   }
 
+  public unselect(id: string): void {
+    this.selectedPhone = null;
+  }
+
   trackById(index, item) {
     return item.id;
   }

@@ -9,4 +9,4 @@
     <p class="phone_list__item-info">more info</p>
   </li>
 </ul>
-<app-phone-detail-component [phone]="selectedPhone"></app-phone-detail-component>
+<app-phone-detail-component [phone]="selectedPhone" (close)="unselect($event)"></app-phone-detail-component>
