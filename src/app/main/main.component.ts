@@ -16,6 +16,8 @@ export class MainComponent implements OnInit {
   public phones$: Observable<Phone[]>;
   public phones: Phone[];
 
+  public loading = true;
+
   constructor(
     private store: Store<phonesReducer.PhoneState>,
     private phonesService: PhonesService) { }
@@ -24,7 +26,10 @@ export class MainComponent implements OnInit {
     this.store.dispatch(new phonesReducer.PhoneLoadPhones());
     this.phones$ = this.store.select(phonesReducer.getPhones);
 
-    this.phonesService.getPhones().subscribe(data => this.phones = data);
+    this.phonesService.getPhones().subscribe(data => {
+      this.phones = data;
+      this.loading = false;
+    });
   }
 
 }
