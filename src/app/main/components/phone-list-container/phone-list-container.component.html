@@ -1,5 +1,11 @@
 <ul>
-  <li *ngFor="let phone of phones">
-    <p>{{phone.title}}</p>
+  <li *ngFor="let phone of phones; trackBy: trackById"
+      (click)="selectPhone(phone.id)">
+    <div class="phone_list__item" [class.selected]="selectedPhone?.id === phone.id">
+      <img src="/assets/img/{{phone.img}}.png">
+      <p>{{phone.title}}</p>
+      <p>{{phone.price}} €</p>
+    </div>
+    <p class="phone_list__item-info">more info</p>
   </li>
 </ul>

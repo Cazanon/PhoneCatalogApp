@@ -11,9 +11,18 @@ export class PhoneListContainerComponent implements OnInit {
 
   @Input() phones: Phone[];
 
+  public selectedPhone: Phone;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  public selectPhone(id: string): void {
+    this.selectedPhone = this.phones.find(e => e.id === id);
+  }
+
+  trackById(index, item) {
+    return item.id;
+  }
 }
