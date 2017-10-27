@@ -14,7 +14,6 @@ export const PhoneActionTypes = {
   LOAD_PHONES: '[Phone] Load Phones',
   LOAD_PHONES_SUCCESS: '[Phone] Load Phones Success',
   GET_PHONE: '[Phone] Get Phone',
-  GET_PHONE_SUCCESS: '[Phone] Get Phone Success',
   RESET_PHONE: '[Phone] Reset Phone'
 };
 
@@ -30,11 +29,6 @@ export class PhoneLoadPhonesSuccess implements Action {
 
 export class PhoneGetPhone implements Action {
   type = PhoneActionTypes.GET_PHONE;
-  constructor() { }
-}
-
-export class PhoneGetPhoneSuccess implements Action {
-  type = PhoneActionTypes.GET_PHONE_SUCCESS;
   constructor(public payload: Phone) { }
 }
 
@@ -47,7 +41,6 @@ export type PhoneActions =
   PhoneLoadPhones |
   PhoneLoadPhonesSuccess |
   PhoneGetPhone |
-  PhoneGetPhoneSuccess |
   PhoneResetPhone;
 
 
@@ -80,15 +73,8 @@ export function PhoneReducer(state = initialState, action: PhoneActions): PhoneS
         isGetting: true,
         phones: null,
         hasResults: true,
-        selectedPhone: null
-      });
-    case PhoneActionTypes.GET_PHONE_SUCCESS:
-      return Object.assign(state, {
-        isGetting: false,
-        phones: null,
-        hasResults: false,
         // selectedPhone: action.payload
-        selectedPhone: action
+        selectedPhone: null
       });
     case PhoneActionTypes.RESET_PHONE:
       return Object.assign(state, {
