@@ -13,7 +13,7 @@ li {
   position: relative;
   padding: 1rem 2rem;
   margin: 0 2.5rem;
-  cursor: pointer;  
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
   &:hover:not(.selected) {
     .phone_list__item img {
@@ -61,7 +61,7 @@ li {
     & img {
       transform: scale(1.1);
     }
-  }    
+  }
   &.selected {
     box-shadow: 3px 3px 10px 0px rgb(0, 0, 0);
   }
@@ -87,4 +87,11 @@ li {
   }
 }
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  .phone_list__item-info {
+    margin: 3rem 2rem 8rem 0rem;
+  }
+  .phone_list__item-info {
+    display: none;
+  }
+}

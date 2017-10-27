@@ -1,0 +1,13 @@
+<div class="phone-detail__container" [ngClass]="{'show': phone}">
+  <div *ngIf="phone" class="phone-detail__details">
+    <img src="/assets/img/{{phone.img}}.png">
+    <div class="phone-detail__info">
+      <p>{{phone.title}}</p>
+      <p>Brand: {{phone.brand}}</p>
+      <p>Description: {{phone.description}}</p>
+      <p>Color: {{phone.color}}</p>
+      <p>Price: {{phone.price}} €</p>
+    </div>
+    <button (click)="closeDetail()">X</button>
+  </div>
+</div>

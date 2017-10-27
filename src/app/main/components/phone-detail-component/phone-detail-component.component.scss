@@ -1,0 +1,73 @@
+:host {
+  display: block;
+  position: fixed;
+  z-index: 2;
+}
+
+.phone-detail__container {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: opacity 0.3s ease-in-out;
+  &.show {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.phone-detail__details {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: #F4F4F4;
+  width: 70%;
+  height: 70%;
+  margin: 12vh auto;
+  border-radius: 5px;
+  & img {
+    height: 70%;
+    width: auto;
+    padding: 2rem;
+  }
+  & button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.phone-detail__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  & p{
+    width: 100%;
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .phone-detail__details {
+    flex-wrap: wrap;  
+    overflow: scroll;
+    & img {
+      height: 70%;
+      padding: 1rem;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  .phone-detail__info {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+}

@@ -9,6 +9,7 @@ import { MainComponent } from './main.component';
 /* Services */
 import { PhonesService } from './services/phones.service';
 import { PhoneListContainerComponent } from './components/phone-list-container/phone-list-container.component';
+import { PhoneDetailComponentComponent } from './components/phone-detail-component/phone-detail-component.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { PhoneListContainerComponent } from './components/phone-list-container/p
   ],
   declarations: [
     MainComponent,
-    PhoneListContainerComponent
+    PhoneListContainerComponent,
+    PhoneDetailComponentComponent
   ],
   exports: [
     MainRoutingModule
