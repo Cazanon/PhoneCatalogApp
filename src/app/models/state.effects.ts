@@ -6,21 +6,25 @@ import { Phone } from './phone.model';
 import { PhonesService } from '../main/services/phones.service';
 import * as phonesReducer from './state.reducer';
 
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/exhaustMap';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/switchMap';
+
 @Injectable()
 export class MainEffects {
 
   @Effect()
   loadPhones$: Observable<Action> = this.actions$
     .ofType(phonesReducer.PhoneActionTypes.LOAD_PHONES)
-    .map(() =>
+    .switchMap(() =>
       this.phonesService.getPhones()
-      .subscribe((phones: Phone[]) => new phonesReducer.PhoneLoadPhonesSuccess(phones))
+      .map((phones: Phone[]) => {
+        return new phonesReducer.PhoneLoadPhonesSuccess(phones);
+      })
     );
-
-  @Effect()
-  getPhone$: Observable<Action> = this.actions$
-    .ofType(phonesReducer.PhoneActionTypes.GET_PHONE)
-    .map((phone: Phone) => new phonesReducer.PhoneGetPhone(phone));
 
   constructor(
     private actions$: Actions,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { Phone } from './phone.model';
 
@@ -19,7 +20,7 @@ export const PhoneActionTypes = {
 
 export class PhoneLoadPhones implements Action {
   type = PhoneActionTypes.LOAD_PHONES;
-  constructor() { }
+  constructor(public payload: Phone[] = null) { }
 }
 
 export class PhoneLoadPhonesSuccess implements Action {
@@ -34,7 +35,7 @@ export class PhoneGetPhone implements Action {
 
 export class PhoneResetPhone implements Action {
   type = PhoneActionTypes.RESET_PHONE;
-  constructor() { }
+  constructor(public payload: Phone = null) { }
 }
 
 export type PhoneActions =
@@ -63,8 +64,7 @@ export function PhoneReducer(state = initialState, action: PhoneActions): PhoneS
     case PhoneActionTypes.LOAD_PHONES_SUCCESS:
       return Object.assign(state, {
         isGetting: false,
-        // phones: action.payload,
-        phones: action,
+        phones: action.payload,
         hasResults: true,
         selectedPhone: null
       });
@@ -73,8 +73,7 @@ export function PhoneReducer(state = initialState, action: PhoneActions): PhoneS
         isGetting: true,
         phones: null,
         hasResults: true,
-        // selectedPhone: action.payload
-        selectedPhone: null
+        selectedPhone: action.payload
       });
     case PhoneActionTypes.RESET_PHONE:
       return Object.assign(state, {
@@ -87,3 +86,6 @@ export function PhoneReducer(state = initialState, action: PhoneActions): PhoneS
       return state;
   }
 }
+
+export const getState = createFeatureSelector<PhoneState>('phones');
+export const getPhones = createSelector(getState, state => state.phones);
