@@ -3,11 +3,11 @@ import { combineReducers } from '@ngrx/store';
 import { PhoneReducer, PhoneState } from './models/state.reducer';
 
 export interface AppState {
-  phone: PhoneState;
+  phones: PhoneState;
 }
 
-const reducers = {
-  phone: PhoneReducer
+export const reducers = {
+  phones: PhoneReducer
 };
 
 export function AppReducer(state: any, action: any) {

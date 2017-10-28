@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { AppReducer } from './app.store';
+import { reducers } from './app.store';
 import { MainEffects } from './models/state.effects';
 
 /* Modules */
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     CommonModule,
-    StoreModule.forRoot(AppReducer),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([MainEffects]),
     AppRoutingModule,
     SharedModule,

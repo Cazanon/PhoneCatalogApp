@@ -14,9 +14,7 @@ import * as phonesReducer from '../models/state.reducer';
 export class MainComponent implements OnInit {
 
   public phones$: Observable<Phone[]>;
-  public phones: Phone[];
-
-  public loading = true;
+  public loading$: Observable<boolean>;
 
   constructor(
     private store: Store<phonesReducer.PhoneState>,
@@ -24,12 +22,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new phonesReducer.PhoneLoadPhones());
+    this.loading$ = this.store.select(phonesReducer.isLoading);
     this.phones$ = this.store.select(phonesReducer.getPhones);
-
-    this.phonesService.getPhones().subscribe(data => {
-      this.phones = data;
-      this.loading = false;
-    });
   }
 
 }

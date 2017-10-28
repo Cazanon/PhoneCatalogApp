@@ -5,7 +5,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Phone } from './phone.model';
 
 export interface PhoneState {
-  isGetting: boolean;
+  isLoading: boolean;
   phones: Phone[];
   hasResults: boolean;
   selectedPhone: Phone;
@@ -46,8 +46,8 @@ export type PhoneActions =
 
 
 const initialState: PhoneState = {
-  isGetting: false,
-  phones: null,
+  isLoading: false,
+  phones: [],
   hasResults: false,
   selectedPhone: null
 };
@@ -56,28 +56,28 @@ export function PhoneReducer(state = initialState, action: PhoneActions): PhoneS
   switch (action.type) {
     case PhoneActionTypes.LOAD_PHONES:
       return Object.assign(state, {
-        isGetting: true,
+        isLoading: true,
         phones: null,
         hasResults: false,
         selectedPhone: null
       });
     case PhoneActionTypes.LOAD_PHONES_SUCCESS:
       return Object.assign(state, {
-        isGetting: false,
-        phones: action.payload,
+        isLoading: false,
+        phones: JSON.parse(JSON.stringify(action.payload)),
         hasResults: true,
         selectedPhone: null
       });
     case PhoneActionTypes.GET_PHONE:
       return Object.assign(state, {
-        isGetting: true,
+        isLoading: true,
         phones: null,
         hasResults: true,
         selectedPhone: action.payload
       });
     case PhoneActionTypes.RESET_PHONE:
       return Object.assign(state, {
-        isGetting: false,
+        isLoading: false,
         phones: null,
         hasResults: false,
         selectedPhone: null
@@ -87,5 +87,14 @@ export function PhoneReducer(state = initialState, action: PhoneActions): PhoneS
   }
 }
 
-export const getState = createFeatureSelector<PhoneState>('phones');
-export const getPhones = createSelector(getState, state => state.phones);
+export const getState = (state: any): PhoneState => {
+  return state.phones;
+};
+
+export const getPhones = (state: any) => {
+  return state && state.phones ? state.phones.phones : [];
+};
+
+export const isLoading = (state: any) => {
+  return state && state.phones ? state.phones.isLoading : [];
+};
